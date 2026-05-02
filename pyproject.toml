@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitvibe"
+version = "0.1.0"
+description = "Spotify Wrapped, but for your git history. A fully-offline CLI that turns local git history into a shareable card."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Your Name", email = "avrov109@gmail.com" }]
+keywords = ["git", "cli", "stats", "wrapped", "developer-tools", "terminal"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+dependencies = ["rich>=13.0"]
+
+[project.optional-dependencies]
+card = ["Pillow>=10.0"]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/gitvibe"
+Issues = "https://github.com/YOUR_USERNAME/gitvibe/issues"
+
+[project.scripts]
+gitvibe = "gitvibe.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["gitvibe*"]
