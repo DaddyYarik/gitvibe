@@ -47,8 +47,18 @@ def _resolve_author(args, path: str) -> str | None:
     return None
 
 
+def _make_utf8_safe() -> None:
+    """Best-effort: never crash on terminals with a non-Unicode codepage."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
+        except (AttributeError, ValueError):
+            pass
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
+    _make_utf8_safe()
     console = Console()
 
     try:
