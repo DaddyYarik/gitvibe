@@ -47,7 +47,7 @@ pip install "gitvibe[card]"  # + PNG card export (Pillow)
 Or run straight from source:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/gitvibe
+git clone https://github.com/DaddyYarik/gitvibe
 cd gitvibe
 pip install -e ".[card]"
 ```
