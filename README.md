@@ -93,4 +93,4 @@ PRs and ideas are very welcome — this project is built to grow. Start with
 
 ## 📄 License
 
-MIT © Your Name
+MIT © DaddyYarik
