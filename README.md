@@ -61,8 +61,34 @@ gitvibe --me                 # only your commits (uses git user.email)
 gitvibe --author alice       # filter by author name/email
 gitvibe --since "1 year ago" # 2025 wrapped vibes
 gitvibe --card vibe.png      # export a shareable card
+gitvibe --roast              # 🔥 roast your commit history (offline, savage)
 gitvibe --json               # raw stats for scripts / dashboards
 ```
+
+## 🔥 Roast mode
+
+`gitvibe --roast` reads your commit history and roasts you with it. Every burn is
+backed by a real number from *your* repo — no AI, no API key, no data leaves your
+machine. It's the most screenshot-able thing in the repo.
+
+```text
+╭──────────────── 🔥 gitvibe roast · my-cool-project ─────────────────╮
+│ ⚰️  Cremated — call a priest                                        │
+│ ████████████████████  100/100                                       │
+│                                                                     │
+│   🔥 60% of your commits are fixes. Maybe ship it right the first   │
+│      time? Just a thought.                                          │
+│   🔥 100% of your commits land between 10pm and 5am. Sleep is for   │
+│      people with passing tests, apparently.                         │
+│   🔥 You have 4 commits claiming to be the "final" one. We both     │
+│      know that's a lie.                                             │
+│                                                                     │
+│   Verdict: your git history is a cry for help with great test       │
+│   coverage.                                                         │
+╰─────────────────── all offline, all your own fault ─────────────────╯
+```
+
+Add `--json` to get the score, level, and burns for scripts or a profile README.
 
 ## 🧬 The personalities
 
@@ -80,7 +106,8 @@ gitvibe --json               # raw stats for scripts / dashboards
 Want to help? These are great first issues — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 - [ ] 🎨 Card themes (`--theme dracula|github|gradient`)
-- [ ] 🤖 AI commit-message *roast* / yearly summary (optional, opt-in)
+- [x] 🔥 Offline commit-history **roast** (`--roast`) — *shipped!*
+- [ ] 🤖 *AI* roast / yearly summary via Claude (optional, opt-in)
 - [ ] 🏷️ GitHub Action: auto-post your yearly vibe to your profile README
 - [ ] 🌐 `gitvibe serve` — local web view
 - [ ] 📊 Multi-repo aggregate ("all my repos, one card")

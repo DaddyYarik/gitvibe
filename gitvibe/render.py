@@ -9,6 +9,7 @@ from rich.text import Text
 
 from .git_stats import Stats
 from .personality import Personality
+from .roast import Roast
 
 WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 BLOCKS = " ▁▂▃▄▅▆▇█"
@@ -103,4 +104,47 @@ def render(stats: Stats, personality: Personality, console: Console | None = Non
     console.print(body)
     console.print(
         "[dim]Generated with gitvibe · share your card with --card vibe.png[/dim]"
+    )
+
+
+def _roast_meter(score: int) -> Text:
+    """A little heat bar: 🔥 filled, ░ empty, scaled 0–100 over 20 cells."""
+    filled = round(score / 100 * 20)
+    bar = Text()
+    bar.append("█" * filled, style="bold red")
+    bar.append("░" * (20 - filled), style="dim red")
+    bar.append(f"  {score}/100", style="bold yellow")
+    return bar
+
+
+def render_roast(stats: Stats, roast: Roast, console: Console | None = None) -> None:
+    console = console or Console()
+
+    if stats.total_commits == 0:
+        console.print(
+            Panel(
+                roast.burns[0],
+                title="🔥 gitvibe roast",
+                border_style="red",
+            )
+        )
+        return
+
+    body = Text()
+    body.append(f"{roast.level}\n", style="bold red")
+    body.append(_roast_meter(roast.score))
+    body.append("\n\n")
+    for line in roast.burns:
+        body.append("  🔥 ", style="red")
+        body.append(line + "\n", style="white")
+    body.append("\n")
+    body.append("  " + roast.verdict, style="italic bold yellow")
+
+    console.print(
+        Panel(
+            body,
+            title=f"🔥 gitvibe roast · {stats.repo_name}",
+            subtitle="[dim]all offline, all your own fault[/dim]",
+            border_style="red",
+        )
     )

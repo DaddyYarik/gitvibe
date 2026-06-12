@@ -9,7 +9,7 @@ description = "Spotify Wrapped, but for your git history. A fully-offline CLI th
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "Your Name", email = "avrov109@gmail.com" }]
+authors = [{ name = "DaddyYarik", email = "avrov109@gmail.com" }]
 keywords = ["git", "cli", "stats", "wrapped", "developer-tools", "terminal"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -25,8 +25,8 @@ dependencies = ["rich>=13.0"]
 card = ["Pillow>=10.0"]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/gitvibe"
-Issues = "https://github.com/YOUR_USERNAME/gitvibe/issues"
+Homepage = "https://github.com/DaddyYarik/gitvibe"
+Issues = "https://github.com/DaddyYarik/gitvibe/issues"
 
 [project.scripts]
 gitvibe = "gitvibe.cli:main"

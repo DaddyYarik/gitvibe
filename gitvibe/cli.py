@@ -11,7 +11,8 @@ from rich.console import Console
 from . import __version__
 from .git_stats import NotAGitRepo, collect_stats
 from .personality import analyze
-from .render import render
+from .render import render, render_roast
+from .roast import roast as roast_repo
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -24,6 +25,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--author", help="filter commits by author name or email")
     p.add_argument("--since", help="only commits after this date, e.g. '2025-01-01' or '1 year ago'")
     p.add_argument("--card", metavar="FILE", help="export a shareable PNG card to FILE")
+    p.add_argument("--roast", action="store_true", help="roast your commit history (offline, savage, screenshot-worthy)")
     p.add_argument("--json", action="store_true", help="print raw stats as JSON instead of a report")
     p.add_argument("--version", action="version", version=f"gitvibe {__version__}")
     return p
@@ -85,7 +87,19 @@ def main(argv: list[str] | None = None) -> int:
             "by_weekday": stats.by_weekday,
             "top_extensions": stats.top_extensions,
         }
+        if args.roast:
+            r = roast_repo(stats)
+            payload["roast"] = {
+                "score": r.score,
+                "level": r.level,
+                "burns": r.burns,
+                "verdict": r.verdict,
+            }
         print(json.dumps(payload, indent=2, ensure_ascii=False))
+        return 0
+
+    if args.roast:
+        render_roast(stats, roast_repo(stats), console)
         return 0
 
     render(stats, personality, console)
