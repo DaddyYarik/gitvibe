@@ -15,6 +15,29 @@ personality — are you a **Night Owl Fix-it Felix** or an **Early Bird Ship It 
 
 ---
 
+```text
+$ gitvibe --roast
+
+╭─────────────────── 🔥 gitvibe roast · my-cool-project ────────────────────╮
+│ ⚰️  Cremated — call a priest                                              │
+│ ████████████████████  100/100                                             │
+│                                                                           │
+│   🔥 60% of your commits are fixes. Maybe ship it right the               │
+│      first time? Just a thought.                                          │
+│   🔥 100% of your commits land between 10pm and 5am. Sleep is             │
+│      for people with passing tests, apparently.                           │
+│   🔥 You have 4 commits claiming to be the "final" one. We                │
+│      both know that's a lie.                                              │
+│   🔥 23% of your messages are basically "update". Future-you              │
+│      sends their regards. They are not happy.                             │
+│                                                                           │
+│ Verdict: your git history is a cry for help with                          │
+│          great test coverage.                                             │
+╰───────────────────────────────────────────────────────────────────────────╯
+```
+
+<div align="center"><sub>↑ <code>gitvibe --roast</code> — 100% offline. Every burn is a real number from your repo.</sub></div>
+
 ```bash
 $ gitvibe --me
 
@@ -67,28 +90,20 @@ gitvibe --json               # raw stats for scripts / dashboards
 
 ## 🔥 Roast mode
 
-`gitvibe --roast` reads your commit history and roasts you with it. Every burn is
-backed by a real number from *your* repo — no AI, no API key, no data leaves your
-machine. It's the most screenshot-able thing in the repo.
+`gitvibe --roast` reads your commit history and roasts you with it (see the demo
+[up top ☝️](#-gitvibe)). Every burn is backed by a real number from *your* repo —
+no AI, no API key, no data leaves your machine. It's the most screenshot-able
+thing in the repo.
 
-```text
-╭──────────────── 🔥 gitvibe roast · my-cool-project ─────────────────╮
-│ ⚰️  Cremated — call a priest                                        │
-│ ████████████████████  100/100                                       │
-│                                                                     │
-│   🔥 60% of your commits are fixes. Maybe ship it right the first   │
-│      time? Just a thought.                                          │
-│   🔥 100% of your commits land between 10pm and 5am. Sleep is for   │
-│      people with passing tests, apparently.                         │
-│   🔥 You have 4 commits claiming to be the "final" one. We both     │
-│      know that's a lie.                                             │
-│                                                                     │
-│   Verdict: your git history is a cry for help with great test       │
-│   coverage.                                                         │
-╰─────────────────── all offline, all your own fault ─────────────────╯
-```
+How the heat is built:
 
-Add `--json` to get the score, level, and burns for scripts or a profile README.
+- **🔥 Fixes & reverts** — the more of your history is undoing your history, the hotter it gets.
+- **😴 Night owl & weekend pushes** — committed at 3am? On a Sunday? We noticed.
+- **🥱 Lazy messages** — `update`, `wip`, `.`, and the legendary "final" commit (×4).
+- **🗯️ Desperation** — `please work`, ALL-CAPS rage, trailing `...`, and `fix typo`.
+
+Each repo gets a **0–100 char level** (🍞 *Lightly toasted* → ⚰️ *Cremated*) and a
+final verdict. Add `--json` to pipe the score and burns into a profile README.
 
 ## 🧬 The personalities
 
