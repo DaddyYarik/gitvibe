@@ -99,7 +99,13 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.roast:
-        render_roast(stats, roast_repo(stats), console)
+        r = roast_repo(stats)
+        render_roast(stats, r, console)
+        if args.card:
+            from .card import render_roast_card
+
+            out = render_roast_card(stats, r, args.card)
+            console.print(f"[green]Saved roast card →[/green] {out}")
         return 0
 
     render(stats, personality, console)

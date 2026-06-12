@@ -15,28 +15,13 @@ personality — are you a **Night Owl Fix-it Felix** or an **Early Bird Ship It 
 
 ---
 
-```text
-$ gitvibe --roast
+<div align="center">
 
-╭─────────────────── 🔥 gitvibe roast · my-cool-project ────────────────────╮
-│ ⚰️  Cremated — call a priest                                              │
-│ ████████████████████  100/100                                             │
-│                                                                           │
-│   🔥 60% of your commits are fixes. Maybe ship it right the               │
-│      first time? Just a thought.                                          │
-│   🔥 100% of your commits land between 10pm and 5am. Sleep is             │
-│      for people with passing tests, apparently.                           │
-│   🔥 You have 4 commits claiming to be the "final" one. We                │
-│      both know that's a lie.                                              │
-│   🔥 23% of your messages are basically "update". Future-you              │
-│      sends their regards. They are not happy.                             │
-│                                                                           │
-│ Verdict: your git history is a cry for help with                          │
-│          great test coverage.                                             │
-╰───────────────────────────────────────────────────────────────────────────╯
-```
+<img src="docs/roast.png" alt="gitvibe --roast — a terminal roast of your commit history" width="760">
 
-<div align="center"><sub>↑ <code>gitvibe --roast</code> — 100% offline. Every burn is a real number from your repo.</sub></div>
+<sub><code>gitvibe --roast</code> · 100% offline · every burn is a real number from <em>your</em> repo</sub>
+
+</div>
 
 ```bash
 $ gitvibe --me
@@ -85,6 +70,7 @@ gitvibe --author alice       # filter by author name/email
 gitvibe --since "1 year ago" # 2025 wrapped vibes
 gitvibe --card vibe.png      # export a shareable card
 gitvibe --roast              # 🔥 roast your commit history (offline, savage)
+gitvibe --roast --card r.png # export the roast as a terminal screenshot PNG
 gitvibe --json               # raw stats for scripts / dashboards
 ```
 
@@ -103,7 +89,9 @@ How the heat is built:
 - **🗯️ Desperation** — `please work`, ALL-CAPS rage, trailing `...`, and `fix typo`.
 
 Each repo gets a **0–100 char level** (🍞 *Lightly toasted* → ⚰️ *Cremated*) and a
-final verdict. Add `--json` to pipe the score and burns into a profile README.
+final verdict. Export it as the terminal screenshot up top with
+`gitvibe --roast --card roast.png`, or add `--json` to pipe the score and burns
+into a profile README.
 
 ## 🧬 The personalities
 
