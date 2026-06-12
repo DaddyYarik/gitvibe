@@ -6,7 +6,7 @@ PRs are genuinely welcome.
 ## Quick start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/gitvibe
+git clone https://github.com/DaddyYarik/gitvibe
 cd gitvibe
 python -m venv .venv
 .venv\Scripts\activate        # Windows
